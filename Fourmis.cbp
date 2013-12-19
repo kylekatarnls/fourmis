@@ -34,18 +34,10 @@
 		</Compiler>
 		<Unit filename="Etat.cpp" />
 		<Unit filename="Etat.h" />
-		<Unit filename="Fourmi.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Fourmi.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Fourmiliere.cpp">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Fourmiliere.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="Fourmi.cpp" />
+		<Unit filename="Fourmi.h" />
+		<Unit filename="Fourmiliere.cpp" />
+		<Unit filename="Fourmiliere.h" />
 		<Unit filename="Plateau.cpp" />
 		<Unit filename="Plateau.h" />
 		<Unit filename="main.cpp" />
