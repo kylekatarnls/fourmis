@@ -10,7 +10,7 @@ class Plateau
         Etat** tab;
         unsigned int hauteur, largeur;
     public:
-        ~Plateau();
+        virtual ~Plateau();
         Plateau();
         Plateau(Plateau& pl);
         Plateau(unsigned int h, unsigned int l);

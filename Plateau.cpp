@@ -98,41 +98,55 @@ Etat& Plateau::get_case(unsigned int x, unsigned int y)
 {
     return tab[x][y];
 }
+
+// getter hauteur
 unsigned int Plateau::get_h()
 {
     return hauteur;
 }
+
+// getter largeur
 unsigned int Plateau::get_l()
 {
     return largeur;
 }
 
+// Retourne true si la position (x, y) est au bord du plateau, false sinon
 bool Plateau::est_au_bord(unsigned int x, unsigned int y)
 {
     return (x == 0 || y == 0 || x == largeur - 1 || y == hauteur - 1);
 }
 
+// Agrandit le tableau (une colonne supplémentaire à gauche, une à droite, une ligne supplémentaire en haut, une en bas)
 Plateau& Plateau::operator++(void)
 {
     hauteur += 2;
     largeur += 2;
+    // Création de tab2 aux nouvelles dimensions
     Etat** tab2 = new Etat*[largeur];
+    // Pour chaque colonne
     for(unsigned int x = 0; x < largeur; x++)
     {
         tab2[x] = new Etat[hauteur];
+        // Pour chaque ligne
         for(unsigned int y = 0; y < hauteur; y++)
         {
+            // S'il s'agit d'une case au bord, et donc d'une nouvelle case
             if(est_au_bord(x, y))
             {
+                // Instanciation d'un nouvel état vierge (occupe = false, direction = 1)
                 Etat t;
                 tab2[x][y] = t;
             }
             else
             {
+                // Copie dans le nouveau tableau de l'état dans l'ancien tableau à la position correspondante
                 tab2[x][y] = tab[x-1][y-1];
             }
         }
     }
+    // Remplacement du tableau
     tab = tab2;
+    // Chaînage
     return *this;
 }

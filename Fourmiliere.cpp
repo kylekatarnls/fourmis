@@ -55,30 +55,30 @@ void Fourmiliere::stats(unsigned int n, unsigned int m)
             n = nb-1;
         }
     }
-    unsigned int d = popu[n].get_d();
-    unsigned int min = d;
+    // Initialisation des données de statistique avec les valeurs de la première fourmi de la sélection [ n -> m ]
     unsigned int min_n = n;
-    unsigned int max = d;
     unsigned int max_n = n;
-    unsigned int sum = d;
+    unsigned int sum = popu[n].get_d();
+    // Pour chacune des autres fourmis de la sélection
     for(unsigned int i = n; i <= m; i++)
     {
-        d = popu[i].get_d();
-        if(d < min)
+        // Si elle bat le reccord du minimum
+        if(popu[i] < popu[min_n])
         {
-            min = d;
             min_n = i;
         }
-        else if(d > max)
+        // Si elle bat le reccord du maximum
+        else if(popu[max_n] < popu[i])
         {
-            max = d;
             max_n = i;
         }
-        sum += d;
+        // Ajout de la distance au total
+        sum += popu[i].get_d();;
     }
+    // Calcul de moyenne en fonction du total et du nombre de fourmis
     double avg = (double) sum / (double) (m - n + 1);
-    cout << "Minimum : " << min << " par la fourmi " << (min_n + 1) << endl;
-    cout << "Maximum : " << max << " par la fourmi " << (max_n + 1) << endl;
+    cout << "Minimum : " << popu[min_n].get_d() << " par la fourmi " << (min_n + 1) << endl;
+    cout << "Maximum : " << popu[max_n].get_d() << " par la fourmi " << (max_n + 1) << endl;
     cout << "Moyenne : " << avg << endl;
 }
 

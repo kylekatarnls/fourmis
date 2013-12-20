@@ -48,11 +48,13 @@ Fourmi::Fourmi(Plateau& pl)
     }
 }
 
+// getter direction
 unsigned int Fourmi::get_d()
 {
     return d;
 }
 
+// Comparer des fourmis en fonction de la distance (utilisé pour afficher le minimum et maximum des distances parcourues)
 bool operator<(const Fourmi& a, const Fourmi& b)
 {
     return a.d < b.d;

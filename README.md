@@ -1,4 +1,4 @@
 fourmis
 =======
 
-Fourmis
+Projet d'étude

@@ -4,6 +4,7 @@ using namespace std;
 #include <windows.h>
 #include <iostream>
 #include "Fourmiliere.h"
+#include "Animations.h"
 #define IMAGES_PAR_SECONDE 6
 
 #ifdef __cplusplus__
@@ -18,6 +19,7 @@ int main()
     /*
         // Pour tester l'opérateur =
         Plateau pl2 = pl;
+        // ou Plateau pl2(pl);
         pl2.affiche();
     */
     Fourmiliere f(pl);
@@ -26,7 +28,7 @@ int main()
         // Si l'utilisateur appuie sur Echap
         if(GetAsyncKeyState(VK_ESCAPE))
         {
-            return EXIT_SUCCESS;
+            break;
         }
         // Si la console est de type DOS/Windows
         if(system("CLS"))
@@ -75,5 +77,6 @@ int main()
         // Délais entre les images de l'animation
         Sleep(1000/IMAGES_PAR_SECONDE);
     }
+    Animations::quitter();
     return EXIT_SUCCESS;
 }
