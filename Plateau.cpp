@@ -46,10 +46,6 @@ Plateau::~Plateau()
     // Parcoure en largeur et hauteur et libération de la mémoire pour chaque case et chaque ligne
     for(unsigned int x = 0; x < largeur; x++)
     {
-        for(unsigned int y = 0; y < hauteur; y++)
-        {
-            delete &tab[x][y];
-        }
         delete tab[x];
     }
     delete tab;
